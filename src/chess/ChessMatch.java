@@ -1,6 +1,9 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Position;
+import chess.pieces.King;
+import chess.pieces.Rook;
 
 public class ChessMatch {
 	//aqui vai ser o principal do jogo
@@ -10,6 +13,7 @@ public class ChessMatch {
 	
 	public ChessMatch() {
 		board = new Board(8, 8);
+		initialSetup();
 	}
 	
 	//esse metodo irar retorna 
@@ -22,5 +26,10 @@ public class ChessMatch {
 			}
 		}
 		return mat;
+	}
+	
+	private void initialSetup(){
+		board.placePiece(new Rook(board, Color.BLACK), new Position(2, 1));
+		board.placePiece(new King(board, Color.WHITE), new Position(5, 3));
 	}
 }
